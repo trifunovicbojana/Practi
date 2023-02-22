@@ -21,3 +21,4 @@ lead_id = target_line.split('"')[1]
 with open(r"C:\Users\bvranic\Documents\leadId.txt", "w") as f:
     f.write(lead_id)
         
+promene
