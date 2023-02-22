@@ -1,0 +1,26 @@
+
+import requests
+import sys
+ 
+token = ""
+ 
+URL = 'https://test-us-partner.store.mt.com/login'
+s = requests.Session()
+ 
+# Retrieve the CSRF token firstres =  s.get(URL)  # sets cookielines = res.text.split("\n")
+for line in lines:
+    if "CSRFToken" in line:
+        # print(line)
+        token = line.split('"')[-2]
+        break
+login_data = {"username":"borko.vranic@mt.com",
+                  "password":"test1234",
+                  "CSRFToken":token}
+ 
+s = requests.Session()
+res_login = s.post("https://test-us-partner.store.mt.com/login_check_process", data=login_data, cookies=res.cookies)
+status_code = res_login.status_code
+res_data = res_login.text
+
+	METTLER TOLEDO US PartnerPortal
+
